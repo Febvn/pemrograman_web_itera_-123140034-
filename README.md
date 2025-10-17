@@ -189,5 +189,7 @@ Jika Anda ingin, saya bisa mengubah contohnya langsung di README untuk menampilk
 - `assets/screenshots/2-filter.svg` — contoh hasil filter/pencarian
 - `assets/screenshots/3-stats.svg` — ringkasan statistik (tugas belum selesai)
 
-Jika belum ada, ambil screenshot halaman aplikasi dan simpan pada path di atas.
+live Demo:
+https://manager.page.gd/ 
+
 
