@@ -1,7 +1,9 @@
 # Task Manager Mahasiswa
 
 Aplikasi web sederhana untuk membantu mahasiswa mengelola tugas kuliah. Proyek ini adalah aplikasi statis (HTML/CSS/JS) yang menyimpan data di browser menggunakan localStorage.
-live Demo: https://manager.page.gd/
+
+
+LIVE DEMO: https://manager.page.gd/
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -194,6 +196,7 @@ Jika Anda ingin, saya bisa mengubah contohnya langsung di README untuk menampilk
 - `assets/screenshots/1-dashboard.svg` — dashboard (daftar tugas + form)
 - `assets/screenshots/2-filter.svg` — contoh hasil filter/pencarian
 - `assets/screenshots/3-stats.svg` — ringkasan statistik (tugas belum selesai)
+
 
 
 
