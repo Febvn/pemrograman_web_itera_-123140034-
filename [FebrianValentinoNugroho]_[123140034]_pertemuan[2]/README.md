@@ -4,6 +4,8 @@
 
 Aplikasi web sederhana untuk mengelola informasi pribadi seperti jadwal kuliah, daftar tugas, catatan, dan informasi cuaca/waktu. Proyek ini adalah aplikasi statis (HTML/CSS/JS) yang menyimpan data di browser menggunakan localStorage.
 
+LIVE DEMO: https://mypanel.page.gd/
+
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -158,3 +160,4 @@ Alternatif: buka file `index.html` langsung tanpa server:
 - `screenshots/schedule-form.png` — form tambah jadwal
 - `screenshots/task-list.png` — daftar tugas dengan status
 - `screenshots/statistics.png` — tampilan statistik real-time
+
