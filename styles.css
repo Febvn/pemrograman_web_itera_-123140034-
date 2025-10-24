@@ -1,0 +1,905 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #0f0f0f 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.time-weather {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.time {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+/* Glassmorphism Cards */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    /* allow internal scrolling inside card-content instead of expanding the card */
+    overflow: visible;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Card Headers */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-header h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Card Content */
+.card-content {
+    min-height: 200px;
+    /* do not allow the card to grow indefinitely; use scrolling when content overflows */
+    max-height: 360px;
+    overflow-y: auto;
+    padding-right: 6px; /* space for scrollbar */
+}
+
+/* Ensure each specific list also handles overflow nicely and stacks items */
+.schedule-list,
+.task-list,
+.note-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Schedule Card Specific */
+.schedule-card {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.schedule-item {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+    background: rgba(255, 253, 253, 0.08);
+}
+
+.schedule-time {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.schedule-time .time-icon {
+    color: #ffffff;
+    margin-right: 8px;
+}
+
+.schedule-time .schedule-day {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+/* Style untuk wrapper input waktu pada form (klik area akan fokus input) */
+.time-input-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    cursor: text; /* menunjukkan area bisa diklik untuk input */
+}
+
+.time-input-label input[type="time"] {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Make native time input text and picker controls appear white where possible */
+.time-input-label input[type="time"] {
+    -webkit-appearance: none; /* remove native spinner in some webkit browsers so we can better control look */
+    appearance: none;
+    color: #ffffff; /* visible text color */
+    caret-color: #ffffff;
+    accent-color: #ffffff; /* used by some browsers for control accents */
+}
+
+/* WebKit specific parts for the datetime fields inside the input */
+.time-input-label input[type="time"]::-webkit-datetime-edit,
+.time-input-label input[type="time"]::-webkit-datetime-edit-field,
+.time-input-label input[type="time"]::-webkit-datetime-edit-text {
+    color: #ffffff;
+}
+
+/* Make the calendar / clock indicator (if present) more visible by inverting it */
+.time-input-label input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(2);
+}
+
+/* Firefox: try to set color for the internal text parts */
+input[type="time"]::-moz-focus-inner {
+    color: #ffffff;
+}
+
+/* Fallback: ensure placeholder-like text remains readable */
+.time-input-label input[type="time"]::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.time-input-label input[type="time"]:focus {
+    outline: none;
+}
+
+.time-input-icon {
+    color: #ffffff;
+}
+
+.schedule-subject {
+    font-weight: 500;
+    margin: 5px 0;
+    color: #ffffff;
+}
+
+.schedule-location {
+    color: #b0b0b0;
+    font-size: 0.85rem;
+}
+
+/* Tasks Card Specific */
+.tasks-card {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.task-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+    /* Priority indicator: small neon circle to the left of the priority label */
+    .task-priority {
+        position: relative;
+        padding-left: 20px;
+        display: inline-block;
+    }
+    .task-priority::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #39ff14; /* default neon green */
+        box-shadow: 0 0 8px rgba(57,255,20,0.9), 0 0 18px rgba(57,255,20,0.25);
+    }
+
+    /* Low priority: neon green */
+    .task-priority.low::before {
+        background: #39ff14;
+        box-shadow: 0 0 8px rgba(57,255,20,0.95), 0 0 18px rgba(57,255,20,0.25);
+    }
+
+    /* Medium priority: neon orange */
+    .task-priority.medium::before {
+        background: #ff8c00;
+        box-shadow: 0 0 8px rgba(255,140,0,0.95), 0 0 18px rgba(255,140,0,0.25);
+    }
+
+    /* High priority: neon red */
+    .task-priority.high::before {
+        background: #ff1744;
+        box-shadow: 0 0 8px rgba(255,23,68,0.95), 0 0 18px rgba(255,23,68,0.25);
+    }
+
+.task-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-checkbox.checked {
+    background: #4caf50;
+    border-color: #4caf50;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-title {
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.task-description {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Notes Card Specific */
+.notes-card {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.note-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.note-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.note-title {
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.note-content {
+    color: #e0e0e0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.note-date {
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+
+/* Stats Card Specific */
+.stats-card {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Priority dropdown specific styling */
+.form-group select option {
+    background: #2a2a2a;
+    color: #ffffff;
+    padding: 8px 12px;
+}
+
+.form-group select option:hover {
+    background: #3a3a3a;
+}
+
+.form-group select option:checked {
+    background: #64b5f6;
+    color: #ffffff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(100, 181, 246, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+/* Success button (green) used for Save actions */
+.btn-success {
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+    color: #ffffff;
+    /* match base .btn sizing so modal uses consistent sizes */
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Fancy button variant: reuse .button visual effects but keep existing color/background
+   for .btn-edit and .btn-danger by not overriding background here. */
+.btn.fancy {
+    --radius: 100px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    position: relative;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    /* Do not set background here — keep .btn-edit / .btn-danger backgrounds intact */
+    box-shadow:
+        inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
+        inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+        inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
+        0 3rem 3rem rgba(0, 0, 0, 0.3),
+        0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+    padding: 0; /* inner .wrap handles padding */
+}
+.btn.fancy .wrap {
+    font-size: 14px; /* adjust to match compact button sizes */
+    font-weight: 500;
+    color: inherit; /* keep text color from .btn-edit/.btn-danger */
+    padding: 10px 14px;
+    border-radius: inherit;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.btn.fancy .wrap p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    transition: all 0.2s ease;
+    transform: translateY(0%);
+}
+.btn.fancy .wrap::before,
+.btn.fancy .wrap::after {
+    content: "";
+    position: absolute;
+    transition: all 0.3s ease;
+}
+.btn.fancy .wrap::before {
+    left: -15%;
+    right: -15%;
+    bottom: 25%;
+    top: -100%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+.btn.fancy .wrap::after {
+    left: 6%;
+    right: 6%;
+    top: 12%;
+    bottom: 40%;
+    border-radius: 22px 22px 0 0;
+    box-shadow: inset 0 10px 8px -10px rgba(255, 255, 255, 0.8);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+.btn.fancy:hover {
+    box-shadow:
+        inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4),
+        inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+        inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7),
+        0 3rem 3rem rgba(0, 0, 0, 0.3),
+        0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+.btn.fancy:hover .wrap::before {
+    transform: translateY(-5%);
+}
+.btn.fancy:hover .wrap::after {
+    opacity: 0.4;
+    transform: translateY(5%);
+}
+.btn.fancy:hover .wrap p {
+    transform: translateY(-4%);
+}
+.btn.fancy:active {
+    transform: translateY(4px);
+    box-shadow:
+        inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5),
+        inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8),
+        inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4),
+        0 3rem 3rem rgba(0, 0, 0, 0.3),
+        0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+/* Modal action buttons: match the compact edit/delete .btn.fancy sizing */
+.modal .form-actions .btn.fancy {
+    padding: 0; /* inner .wrap handles padding */
+    min-width: auto;
+    border-radius: 12px;
+}
+.modal .form-actions .btn.fancy .wrap {
+    /* Match .btn.fancy .wrap for consistent sizing */
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.modal .form-actions .btn.fancy .wrap p {
+    gap: 8px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+    
+    .schedule-card {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .tasks-card {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .notes-card {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .stats-card {
+        grid-column: 2;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+    
+    .schedule-card {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .tasks-card {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .notes-card {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .stats-card {
+        grid-column: 1;
+        grid-row: 4;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Custom scrollbar styling (WebKit) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+}
+
+/* Firefox scrollbar (thin) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.12) rgba(255,255,255,0.03);
+}
+
+/* Compact search input used next to add (+) buttons */
+.search-container {
+    position: relative;
+    --size-button: 36px;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 8px;
+}
+.search-container .search-input {
+    padding-left: calc(var(--size-button) + 8px);
+    height: var(--size-button);
+    font-size: 14px;
+    border: none;
+    color: #fff;
+    outline: none;
+    /* always-expanded: show finished search UI without hover/expand effect */
+    width: 200px;
+    transition: none;
+    background-color: rgba(25,26,30,0.9);
+    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgba(95,94,94,0.25), inset 0 0 0 #0e0e0e;
+    border-radius: 50px;
+    cursor: text;
+    padding-right: 12px;
+}
+.search-container .icon {
+    position: absolute;
+    width: var(--size-button);
+    height: var(--size-button);
+    top: 0;
+    left: 0;
+    padding: 6px;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.8);
+}
+.search-container .icon svg {
+    width: 18px;
+    height: 18px;
+}
