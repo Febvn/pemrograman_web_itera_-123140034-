@@ -1,70 +1,245 @@
-# Getting Started with Create React App
+# 📚 Personal Book Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=white)
+![Create React App](https://img.shields.io/badge/Create%20React%20App-5.0.1-09D3AC?logo=create-react-app&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node-%3E%3D%2014-339933?logo=node.js&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-## Available Scripts
+# Manajemen Buku Pribadi
 
-In the project directory, you can run:
+![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=white)
+![Create React App](https://img.shields.io/badge/Create%20React%20App-react--scripts-4DA1FF)
+![Node.js](https://img.shields.io/badge/Node-%3E%3D%2014-339933?logo=node.js&logoColor=white)
 
-### `npm start`
+## 📖 Tentang Aplikasi
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Aplikasi manajemen buku pribadi yang memungkinkan pengguna untuk:
+- Mengelola koleksi buku (tambah, edit, hapus)
+- Mencatat progress membaca
+- Menambahkan catatan untuk setiap buku
+- Mencari buku menggunakan Google Books API
+- Melihat statistik membaca
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Fitur Utama
 
-### `npm test`
+- ✨ Interface modern dengan desain responsif
+- 📱 Layout mobile-friendly
+- 🔍 Integrasi dengan Google Books API
+- 💾 Penyimpanan lokal menggunakan localStorage
+- 📊 Visualisasi statistik membaca
+- 🎨 Kustomisasi warna catatan
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 Teknologi
 
-### `npm run build`
+- **Frontend:** React 19.x
+- **Routing:** React Router DOM v7
+- **Icons:** Lucide React
+- **HTTP Client:** Axios
+- **Testing:** React Testing Library + Jest
+- **Build Tool:** Create React App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Persyaratan
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (disarankan >= 14)
+- npm (bundled dengan Node) atau yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Prerequisites
 
-### `npm run eject`
+- Node.js (>= 14.x)
+- npm atau yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📥 Instalasi & Penggunaan
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone repository:
+```bash
+git clone https://github.com/username/manajemen-buku-pribadi.git
+cd manajemen-buku-pribadi
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Jalankan aplikasi:
+```bash
+npm start
+```
 
-## Learn More
+4. Build untuk production:
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📁 Struktur Proyek
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/          # Komponen React reusable
+│   ├── AddNoteForm/    # Form untuk menambah catatan
+│   ├── BookForm/       # Form tambah/edit buku
+│   ├── BookList/       # Daftar buku dan item
+│   ├── Layout/         # Layout aplikasi (header/footer)
+│   └── SearchBar/      # Komponen pencarian
+├── context/            # Context API untuk state management
+├── hooks/              # Custom React hooks
+├── pages/              # Komponen halaman utama
+├── services/           # Service layer (API calls)
+└── utils/              # Helper functions & utilities
+```
 
-### Code Splitting
+## 📦 Dependencies Utama
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```json
+{
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.5",
+    "axios": "^1.13.1",
+    "lucide-react": "^0.552.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^6.9.1"
+  }
+}
+```
 
-### Analyzing the Bundle Size
+## 🧪 Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Menjalankan test:
+```bash
+npm test
+```
 
-### Making a Progressive Web App
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+MIT License - Lihat [LICENSE](LICENSE) untuk detail lebih lanjut.
 
-### Advanced Configuration
+## 👨‍💻 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Febrian Valentino Nugroho
 
-### Deployment
+## Dependency (dari `package.json`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Dependencies utama yang digunakan di proyek ini:
 
-### `npm run build` fails to minify
+/* dependencies */
+- @testing-library/dom: ^10.4.1
+- axios: ^1.13.1
+- lucide-react: ^0.552.0
+- react: ^19.2.0
+- react-dom: ^19.2.0
+- react-router-dom: ^7.9.5
+- react-scripts: 5.0.1
+- web-vitals: ^2.1.4
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+DevDependencies untuk testing:
+
+- @testing-library/jest-dom: ^6.9.1
+- @testing-library/react: ^16.3.0
+- @testing-library/user-event: ^14.6.1
+
+Jika Anda menggunakan `npm install` tanpa argumen, semua dependency (dep + devDep) akan terpasang.
+
+## Struktur file (ringkasan)
+
+Berikut struktur utama proyek (folder `src/` fokus pada kode sumber):
+
+```
+manajemen-buku-pribadi/
+	package.json
+	README.md
+	public/
+		index.html
+		manifest.json
+		robots.txt
+		logo.PNG
+		logo192.png
+		logo512.png
+		favicon.ico
+	src/
+		App.css
+		App.jsx
+		App.test.js
+		index.css
+		index.js
+		reportWebVitals.js
+		setupTests.js
+		components/
+			AddNoteForm/
+				AddNoteForm.css
+				AddNoteForm.jsx
+			BentoGrid/
+				BentoGrid.css
+				BentoGrid.jsx
+			BookDistribution/
+				BookDistribution.jsx
+			BookFilter/
+				BookFilter.css
+				BookFilter.jsx
+			BookForm/
+				BookForm.css
+				BookForm.jsx
+			BookList/
+				BookItem.css
+				BookItem.jsx
+				BookList.css
+				BookList.jsx
+			Layout/
+				Layout.css
+				Layout.jsx
+			NoteForm/
+				NoteForm.css
+				NoteForm.jsx
+			SearchBar/
+				SearchBar.css
+				SearchBar.jsx
+		context/
+			BookContext.js
+		hooks/
+			useBookApi.js
+			useBookStats.js
+			useLocalStorage.js
+		pages/
+			BookDetail/
+				BookDetail.css
+				BookDetail.jsx
+			BookFormPage/
+				BookFormPage.jsx
+			Home/
+				Home.css
+				Home.jsx
+			Stats/
+				Stats.css
+				Stats.jsx
+		services/
+			bookApi.js
+		utils/
+			helpers.js
+```
+
+## Petunjuk singkat pengembangan
+
+- Struktur komponen dibuat modular — masing-masing komponen berada di foldernya sendiri (CSS + JSX).
+- State global menggunakan `BookContext` (Context API).
+- Hooks custom berada pada folder `src/hooks/`.
+
+## Dependencies yang harus di-install jika manual
+
+Jika Anda ingin meng-install dependency utama satu per satu (misalnya saat men-debug), daftar perintah singkat:
+
+```powershell
+npm install react react-dom react-router-dom react-scripts axios lucide-react web-vitals
+npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+```
+
+## Catatan
+
+- Saya telah menghubungkan `public/index.html` untuk menggunakan `logo.PNG` sebagai favicon.
+- Jika Anda ingin menambahkan badge lisensi, sebutkan lisensi (mis. MIT) dan saya akan tambahkan.
+
+---
+
+Jika ingin, saya akan melanjutkan ke penambahan komentar per baris pada file `src/` (sesuai permintaan). Saya akan mengerjakan dalam batch kecil dan memeriksa sintaks setiap batch.

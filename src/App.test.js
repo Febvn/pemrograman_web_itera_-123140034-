@@ -1,3 +1,9 @@
+/*
+  App.test.js
+  -----------------
+  Penjelasan: Test sederhana untuk memastikan App dirender tanpa error.
+  - Catatan: Test ini menggunakan React Testing Library; Anda dapat menambah test lebih lengkap.
+*/
 import { render, screen } from '@testing-library/react';
 import App from './App';
 

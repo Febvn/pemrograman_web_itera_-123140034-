@@ -1,0 +1,67 @@
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: var(--surface-dark);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.empty-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.stat {
+  background: var(--surface);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* make stats stack on small screens */
+@media (max-width: 540px) {
+  .empty-state {
+    padding: 1.5rem;
+  }
+  .empty-stats {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  .stat {
+    min-width: auto;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.6rem 0.9rem;
+  }
+  .stat-label { font-size: 0.95rem; }
+  .stat-value { font-size: 1rem; }
+}

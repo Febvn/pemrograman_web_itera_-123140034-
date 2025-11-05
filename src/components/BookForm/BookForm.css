@@ -1,0 +1,241 @@
+.book-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.book-form {
+  background: var(--surface-dark);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: var(--text-primary);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-header h2 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.search-section {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  margin-bottom: 1rem;
+}
+
+.search-input-container {
+  display: flex;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem 0 0 0.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+.search-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.api-results {
+  margin-top: 1rem;
+}
+
+.api-results h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.api-books-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.api-book-item {
+  display: flex;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.api-book-item:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.api-book-item:last-child {
+  border-bottom: none;
+}
+
+.api-book-cover {
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.api-book-info h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+.api-book-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.form-content {
+  padding: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--card-dark);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #f44336;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.cancel-button {
+  background: #dc2626;
+  border: none;
+  color: white;
+}
+
+.cancel-button:hover {
+  background: #ef4444;
+}
+
+.submit-button {
+  background: #22c55e;
+  color: white;
+  border: none;
+}
+
+.submit-button:hover {
+  background: #16a34a;
+}

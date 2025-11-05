@@ -1,0 +1,95 @@
+.home-page {
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-container {
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-header h1 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.add-book-button {
+  background: var(--card-dark);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.add-book-button:hover {
+  background: var(--surface-dark);
+  border-color: var(--text-secondary);
+  transform: translateY(-2px);
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.stat-icon.owned {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.stat-icon.reading {
+  background: rgba(33, 150, 243, 0.3);
+}
+
+.stat-icon.want-to-buy {
+  background: rgba(255, 152, 0, 0.3);
+}
+
+.stat-icon.completed {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.stat-icon.reading-time {
+  background: rgba(156, 39, 176, 0.3);
+}
+
+.stat-info h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.stat-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
